@@ -1,5 +1,5 @@
 # tslat
-As of first step to do performance review of your application is look to your log files. But it may be tedious to understand time delta between two соседними log lines. 
+As of first step to do performance review of your application is look to your log files. But it may be tedious to understand time delta between two adjacent log lines. 
 This tool is to resquie! It's calculates timestamp delta between to adjacent log lines and out in format you may specify. 
 
 Let's suppose we have following log lines in file:
