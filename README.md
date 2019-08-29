@@ -10,7 +10,7 @@ Let's suppose we have following log lines in file:
 2018-09-21 14:43:59,852 DEBUG [main] r.k.u.d.ClasspathScriptLocator - Found: META-INF/dbevolution/accounting/2.sql
 ```
 
-And we want to see delta between timestamps on each line. We can estimate performance of each operation on high level, for example.
+And we want to see time delta between timestamps on each log line. We can estimate performance of each operation on high level, for example.
 Download and run this nifty tool:
 ```console
 $cat server.log | tslat -delta-format "%9d|" 
@@ -19,7 +19,7 @@ $cat server.log | tslat -delta-format "%9d|"
         1| 2018-09-21 14:43:59,846 DEBUG [main] r.k.u.d.ClasspathScriptLocator - Found: META-INF/dbevolution/accounting/1.sql
         6| 2018-09-21 14:43:59,852 DEBUG [main] r.k.u.d.ClasspathScriptLocator - Found: META-INF/dbevolution/accounting/2.sql
 ```
-I've love to separate delta value from the rest of logs by `|` char, so I added parameter `-delta-format`. It's simplifies further logs processing by other tools like `sed` and `awk`.
+I prefer to separate delta value from the rest of logs by `|` char, so I added parameter `-delta-format`. It's simplifies further logs processing by other tools like `sed` or `awk`.
 
 # help
 As usually:
@@ -34,7 +34,7 @@ Usage of ./tslat:
   -input string
         Input file path. Stdin will be used if its option is ommited
   -threshold int
-        Filter lines with timestamp delta bigger than specified threshold
+        Filter out lines with timestamp delta lesser than specified threshold
 ```
 
-Note! All time delta, if not defined others, is measured in microseconds.
+Note! All time deltas, if not stated others, is treated as microseconds.
